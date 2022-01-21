@@ -17,11 +17,12 @@ const HomePage = () => {
   return (
     <div>
       <div>Platzi and Next.js!</div>
-      {productList.map((product) => (
-        <>
+      {productList.map((product, index) => (
+        <div key={index}>
+          <div>{product.id} </div>
           <div>{product.image} </div>
           <div>{product.name} </div>
-        </>
+        </div>
       ))}
     </div>
   )
