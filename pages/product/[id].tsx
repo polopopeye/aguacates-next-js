@@ -13,10 +13,9 @@ const ProductPage = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log({ data })
-
         setProduct(data)
       })
-  }, [])
+  }, [productId])
 
   return (
     <section>
