@@ -16,7 +16,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div>Platzi and Next.js!</div>
+      <div className="text-3xl font-bold underline">Platzi and Next.js!</div>
       {productList.map((product, index) => (
         <div key={index}>
           <div>{product.id} </div>

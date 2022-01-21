@@ -1,6 +1,5 @@
 import Layout from '@components/Layout/Layout'
-
-// import App from 'next/app'
+import '../styles/global.css'
 
 function MyApp({ Component, pageProps }) {
   return (
