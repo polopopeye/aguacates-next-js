@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Layout from '@components/Layout/Layout'
+import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
+import ProductList from '@components/ProductList/ProductList'
 
 const HomePage = () => {
-  const [productList, setProductList] = useState([])
+  const [productList, setProductList] = useState<TProduct[]>([])
 
   useEffect(() => {
     window
       .fetch('/api/avo')
       .then((response) => response.json())
-      .then(({ data, length }) => {
-        console.log(data)
-
+      .then(({ data }: TAPIAvoResponse) => {
         setProductList(data)
       })
   }, [])
 
   return (
-    <div>
-      <div className="text-3xl font-bold underline">Platzi and Next.js!</div>
-      {productList.map((product, index) => (
-        <div key={index}>
-          <div>{product.id} </div>
-          <div>{product.image} </div>
-          <div>{product.name} </div>
-        </div>
-      ))}
-    </div>
+    <Layout>
+      <KawaiiHeader />
+      <ProductList products={productList} />
+    </Layout>
   )
 }
 
